@@ -33,7 +33,7 @@
 
 		if(mysqli_num_rows($rezultats) == 1){
 			while($row = mysqli_fetch_array($rezultats)){
-				if($row["parole"] === $Parole){
+				if(password_verify($Parole, $row["parole"])){
 					$_SESSION["lietotajvards"] = $Lietotajvards;
 					header("location:index.php");
 				}else{
