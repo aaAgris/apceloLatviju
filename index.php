@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
+<!--<
+
+    session_start();
+                    
+                    
+    if(isset($_SESSION['Lietotajvards'])){
+        /*echo "Sveicināts, ".($_SESSION['Lietotajvards'])."!";
+        echo "<a href='admin/logout.php' class='izlogoties'>Izlogoties</a>";*/
+        header("Refresh:1; url=index.php");
+    }else{
+        echo "Tev šeit nav pieejas!";
+        header("Refresh:.1; url=login.php");
+    }
+    ?>-->
 <body>
     <header>
         <div class="logo"> <img src="images/ApskatiLV_Logo.png"></div>
@@ -19,13 +33,15 @@
                 <li><a href="#pieteikties">Pieteikties</a></li>
                 <li><a href="#jaunumi">Jaunumi</a></li>
                 <li><a href="#parmums">Par Mums</a></li>
-                <button onClick="openForm()"><i class="fa fa-lock"></i></button>
                 <li><a href="./login.php"><i class="fa fa-lock"></i></a></li>
+                <li> <button><a href="logout.php">Logout</a></button></li>
+                
             </ul>
         </nav>
     </header>
 
-
+    <!--<button onClick="openForm()"><i class="fa fa-lock"></i></button>-->
+    
 <section  id="home">
 <div class="slideShow">
 
@@ -165,7 +181,7 @@
   </article>
   </section>
 
-  <footer>
+  <footer id="parmums">
     <div class="footer">
     <div class="row">
     <a href="#"><i class="fa fa-facebook"></i></a>

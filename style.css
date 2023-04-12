@@ -21,7 +21,7 @@ header{
     position:fixed;
     top:0;
     left:0;
-    z-index: 1;
+    z-index: 100;
     padding:2.5rem 7%;
 }
 
@@ -44,6 +44,11 @@ header nav ul{
 
 header nav ul li{
     margin-left:2.5rem;
+}
+
+header nav ul li button{
+  text-decoration: none;
+  background-color: rgba(255, 128, 64, 0.9);
 }
 
 header nav ul li a{
@@ -84,7 +89,6 @@ html::-webkit-scrollbar-thumb{
 html{
     scroll-behavior: smooth;
 }
-
 
 
 
@@ -183,7 +187,6 @@ height: 17rem;
 * {box-sizing:border-box}
 
 .slideShow {
-  max-width: 1000px;
   position: relative;
   margin: auto;
   padding-top: 138px;
