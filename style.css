@@ -545,7 +545,7 @@ button:focus {
 
     article{
         padding: 20px;
-        margin: 30px;
+        margin: 20px;
         border-radius: 15px;
         background-image: url(images/kuldiga.jpg);
         background-repeat: no-repeat;
@@ -559,18 +559,34 @@ button:focus {
     }
     
     article h2{
-        color:024280;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
     
     article p{
         text-align: justify;
         font-size: 18px;
+        margin-bottom: 10px;
     }
+
+    .pieteiktPog{
+      background-color: rgba(255, 128, 64, 0.9);
+      border-radius: 10px;
+      box-shadow:  10px 5px 15px black;
+    }
+
+   .pieteiktPog a{
+      text-align: justify;
+      font-size: 18px;
+      padding :.5em .5rem;
+      color: white;
+      
+  }
+
     
     article .imagee{
         float:left;
         height: 170px;
+        width: 170px;
         margin:10px;
         width: auto;
         border-radius: 8px;

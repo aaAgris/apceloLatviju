@@ -75,27 +75,41 @@ session_start();
                                             Pievienot pakalpojumu <i class="fa fa-plus-circle"></i>
                                        </button>
                   </form>
+                  <form action="izmainitPak.php" method="post">
+                                        <button type="submit" name="apskatit" 
+                                        value="{$ieraksts['PakalpojumiID']}" class="btn">
+                                            Rediget pakalpojumu <i class='fa fa-edit'></i>
+                                        </button>
+                    </form>
+                    <form action='delete.php' method='post'>
+                                        <button type='submit' name='delete' 
+                                        value="{$ieraksts['PakalpojumiID']}" class='btn'>
+                                            <i class='fa fa-trash'></i>
+                                        </button>
+                    </form>
                 <?php endif; ?>
     
     <div class="box-container">
+    <?php
+                    require "./connect_db.php";
+                    $atlasit_pak_SQL = "SELECT * FROM pakalpojumi"; 
+                    $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
 
-        <div class="box">
-          <img src="images/ediens.jpg" alt="sejas maska">
-          <h3>Ēdināšana</h3>
-        </div>
-
-        <div class="box">
-            <img src="images/car.jpg" alt="rokas">
-            <h3>Transporta īre</h3>
-          
-        </div>
-
-        <div class="box">
-            <img src="images/maja.jpg" alt="rokas">
-            <h3>Naktsmītnes</h3>
-    
-        </div>
-
+                    while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
+                        /*if(empty($ieraksts['Komentars'])){
+                            $Komentars = "<i class='fas fa-times'></i>";
+                        }else{
+                            $Komentars = "<i class='fas fa-check'></i>";
+                        }*/
+                        echo "
+                        <div class='box'>
+                        <img src='{$ieraksts['Attels']}'>
+                        <h3>{$ieraksts['Nosaukums']}</h3>
+                        <p> {$ieraksts['Apraksts']}</p>
+                        <p> {$ieraksts['Cena']} EUR</p>   
+                      </div>";
+                    }
+        ?>
     </div>
   </section>
 
@@ -103,14 +117,47 @@ session_start();
 
 
     <h2>Ceļojumu piedāvājumi</h2>
+    <?php
+                 if(isset($_SESSION['lietotajvards'])): ?>
+                  <form action='pievienotCel.php' method='post'>
+                                        <button type='submit' name='pievienot' 
+                                        value="{$ieraksts['GalamID']}" class='btn'>
+                                            Pievienot ceļojumu <i class="fa fa-plus-circle"></i>
+                                       </button>
+                  </form>
+                  <!--<form action="izmainitCel.php" method="post">
+                                        <button type="submit" name="apskatit" 
+                                        value="{$ieraksts['PakalpojumiID']}" class="btn">
+                                            Rediget pakalpojumu<i class="fas fa-edit"></i>
+                                        </button>
+                                    </form>-->
+                  </form>
+                <?php endif; ?>
 
 
-    <article>
-      <img class="imagee" src="images/jurmala.jpg">
+    <?php
+                    require "./connect_db.php";
+                    $atlasit_cel_SQL = "SELECT * FROM galamerkis"; 
+                    $atlasa_cel = mysqli_query($savienojums, $atlasit_cel_SQL);
+
+                    while($ieraksts = mysqli_fetch_assoc($atlasa_cel)){
+                        echo "
+                        <article>
+                        <img src ={$ieraksts['Attels']} class='imagee'>
+                        <h2>{$ieraksts['Nosaukums']}</h2>
+                        <p>{$ieraksts['Apraksts']}</p>
+                        <p>{$ieraksts['Lokacija']}</p>
+                        <p>{$ieraksts['Cena']} EUR</p>
+                        <button class='pieteiktPog'><a href='#pieteikties'>Pieteikties</a></button>
+                        </article>
+                    } ";
+                  }
+        ?>
+      <!--<img class="imagee" src="images/jurmala.jpg">
       <h2>Jūrmala</h2>
-      <p>Jūrmala ir Latvijas valstspilsēta un lielākā kūrortpilsēta, apmēram 25 kilometrus uz rietumiem no Rīgas. Pilsētas platība ir 100 km2. Jūrmala 24 km garumā stiepjas gar Rīgas līci un Lielupi. 2020. gadā bija 49 687 iedzīvotāji.
+        <p>Jūrmala ir Latvijas valstspilsēta un lielākā kūrortpilsēta, apmēram 25 kilometrus uz rietumiem no Rīgas. Pilsētas platība ir 100 km2. Jūrmala 24 km garumā stiepjas gar Rīgas līci un Lielupi. 2020. gadā bija 49 687 iedzīvotāji.
 
-        Pilsēta tradicionāli sastāv no atsevišķām daļām (uzskaitītas virzienā no rietumiem uz austrumiem): Ķemeri, Jaunķemeri, Sloka, Kauguri, Vaivari, Asari, Valteri, Melluži, Pumpuri, Jaundubulti, Dubulti, Majori, Dzintari, Bulduri, Lielupe un Priedaine.</p>
+          Pilsēta tradicionāli sastāv no atsevišķām daļām (uzskaitītas virzienā no rietumiem uz austrumiem): Ķemeri, Jaunķemeri, Sloka, Kauguri, Vaivari, Asari, Valteri, Melluži, Pumpuri, Jaundubulti, Dubulti, Majori, Dzintari, Bulduri, Lielupe un Priedaine.</p>
   </article>
   <article>
       <img class="imagez" src="images/liepaja.jpg">
@@ -120,8 +167,9 @@ session_start();
   <article>
       <img class="imagee" src="images/ventspils.jpg">
       <h2>Ventspils</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore? Laudantium optio quam quos ad et maiores iste, tempora atque, mollitia eius soluta expedita reprehenderit a voluptatem. Natus, aperiam quod.</p>
-  </article>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore? Laudantium 
+        optio quam quos ad et maiores iste, tempora atque, mollitia eius soluta expedita reprehenderit a voluptatem. Natus, aperiam quod.</p>-->
+
 
 
 

@@ -1,40 +1,47 @@
 <?php
-    $page = "pakalpojumi";
+    $page = "celojumi";
     //require "header.php";
 ?>
 
 <section class="admin">
     <div class="row">
         <div class="info">
-            <div class="head-info head-color">Pievienot jaunu pakalpojumu</div>
+            <div class="head-info head-color">Pievienot jaunu ceļojumu</div>
             <table class="adminTable">
-            <form action="insertPak.php" method='POST'>
+            <form action="insertCel.php" method='POST'>
                 <tr>
                             <th>Pakalpojums:</th>
                             <td>
                             <textarea rows = "1" cols = "100" name="Nosaukums" required>
-                                Ievadi pakalpojuma nosaukumu*</textarea>
+                                Ievadi ceļojuma nosaukumu*</textarea>
                                 </td>
                         </tr>
                         <tr>
                         <th>Attels:</th>
                             <td>
                             <textarea rows = "1" cols = "100" name="Attels" required>
-                                Ievadi pakalpojuma attela saiti*</textarea>
+                                Ievadi ceļojuma attela saiti*</textarea>
                                 </td>
                         </tr>
                         <tr>
                             <th>Apraksts:</th>
                             <td>
                             <textarea rows = "5" cols = "100" name="Apraksts" required>
-                                Ievadi specialitates aprakstu*</textarea>
+                                Ievadi ceļojuma aprakstu*</textarea>
+                                </td>
+                        </tr>
+                        <tr>
+                            <th>Lokācija:</th>
+                            <td>
+                            <textarea rows = "5" cols = "100" name="Lokacija" required>
+                                Ievadi ceļojuma lokācija*</textarea>
                                 </td>
                         </tr>
                         <tr>
                             <th>Cena:</th>
                             <td>
                             <textarea rows = "1" cols = "100" name="Cena" required>
-                                Ievadi pakalpojuma cenu*</textarea>
+                                Ievadi ceļojuma cenu*</textarea>
                                 </td>
                         </tr>
                         <tr>
@@ -49,7 +56,7 @@
                         
                         <tr> <td></td>
                             <td>
-                            <input class="btn" type="submit" id="poga" name="pievienotPak" value="Pievienot">
+                            <input class="btn" type="submit" id="poga" name="pievienotCel" value="Pievienot">
                             </td>   
                         </tr>
                         <tr>
