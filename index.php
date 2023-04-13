@@ -71,20 +71,20 @@ session_start();
                  if(isset($_SESSION['lietotajvards'])): ?>
                   <form action='pievienotPak.php' method='post'>
                                         <button type='submit' name='pievienot' 
-                                        value="{$ieraksts['PakalpojumiID']}" class='btn'>
+                                        value="{$ieraksts['Pakalpojumi_ID']}" class='btn'>
                                             Pievienot pakalpojumu <i class="fa fa-plus-circle"></i>
                                        </button>
                   </form>
                   <form action="izmainitPak.php" method="post">
                                         <button type="submit" name="apskatit" 
-                                        value="{$ieraksts['PakalpojumiID']}" class="btn">
+                                        value="{$ieraksts['Pakalpojumi_ID']}" class="btn">
                                             Rediget pakalpojumu <i class='fa fa-edit'></i>
                                         </button>
                     </form>
                     <form action='delete.php' method='post'>
                                         <button type='submit' name='delete' 
-                                        value="{$ieraksts['PakalpojumiID']}" class='btn'>
-                                            <i class='fa fa-trash'></i>
+                                        value="{$ieraksts['Pakalpojumi_ID']}" class='btn'>
+                                            Izdzēst pakalpojumu<i class='fa fa-trash'></i>
                                         </button>
                     </form>
                 <?php endif; ?>
@@ -153,25 +153,6 @@ session_start();
                     } ";
                   }
         ?>
-      <!--<img class="imagee" src="images/jurmala.jpg">
-      <h2>Jūrmala</h2>
-        <p>Jūrmala ir Latvijas valstspilsēta un lielākā kūrortpilsēta, apmēram 25 kilometrus uz rietumiem no Rīgas. Pilsētas platība ir 100 km2. Jūrmala 24 km garumā stiepjas gar Rīgas līci un Lielupi. 2020. gadā bija 49 687 iedzīvotāji.
-
-          Pilsēta tradicionāli sastāv no atsevišķām daļām (uzskaitītas virzienā no rietumiem uz austrumiem): Ķemeri, Jaunķemeri, Sloka, Kauguri, Vaivari, Asari, Valteri, Melluži, Pumpuri, Jaundubulti, Dubulti, Majori, Dzintari, Bulduri, Lielupe un Priedaine.</p>
-  </article>
-  <article>
-      <img class="imagez" src="images/liepaja.jpg">
-      <h2>Liepāja</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore? Laudantium optio quam quos ad et maiores iste, tempora atque, mollitia eius soluta expedita reprehenderit a voluptatem. Natus, aperiam quod.</p>
-  </article>
-  <article>
-      <img class="imagee" src="images/ventspils.jpg">
-      <h2>Ventspils</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore? Laudantium 
-        optio quam quos ad et maiores iste, tempora atque, mollitia eius soluta expedita reprehenderit a voluptatem. Natus, aperiam quod.</p>-->
-
-
-
 
   </section>
 
@@ -186,10 +167,11 @@ session_start();
     <div class='content'>
       <div class='welcome'>Piesakies šeit!</div>
       <div class='input-fields'>
-        <input type='text' placeholder='Vārds' class='input-line full-width' required></input>
-        <input type='text' placeholder='Uzvārds' class='input-line full-width' required></input>
+        <form action='entry.php' method='POST'>
+        <input type='text' placeholder='Vārds' name="vards" class='input-line full-width' required></input>
+        <input type='text' placeholder='Uzvārds' name="uzvards" class='input-line full-width' required></input>
         <label >Dzimšanas dati:</label><br>
-        <input type="date" id="birth" name="birth" class="input-line full-width" required><br>
+        <input type="date" id="birth" name="dzimDati" class="input-line full-width" required><br>
         <label >Ceļojums:</label><br>
         <select name = "dropdown" class="input-line full-width" required>
             <option value = "Riga" selected>Rīga</option>
@@ -202,11 +184,12 @@ session_start();
          <input type="number" id="skaits" class='input-line full-width' name="skaits"><br>
          <label >Telefona numurs:</label><br>
          <input type="text" id="nr" name="nr" value="+371 " class='input-line full-width' required><br>
-        <input type='email' placeholder='E-Pasts' class='input-line full-width'></input>
+        <input type='email' placeholder='E-Pasts' name="epasts" class='input-line full-width'></input>
         <label >Komentārs:</label><br>
         <input type="text" id="koment" class="input-line full-width" name="koment"><br>
       </div>
-      <div><button class='ghost-round full-width'>Pieteikties ceļojumam</button></div>
+      <div><button class='ghost-round full-width' type="submit" name="gatavs">Pieteikties ceļojumam</button></div>
+      </form>
     </div>
   </div>
 </div>

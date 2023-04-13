@@ -60,8 +60,8 @@ a{
 
 button{
 	border-radius: 20px;
-	border: 1px solid #eeb084;
-	background-color: #eeb084;
+	border: 1px solid #024281;
+	background-color: #024281;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -81,16 +81,6 @@ button:hover{
 button.ghost{
 	background-color: transparent;
 	border-color: #FFFFFF;
-}
-
-button.ghost a{
-	color:white;
-	text-decoration: none;
-}
-
-button.ghost a:hover{
-	color:black;
-	text-decoration: none;
 }
 
 button.ghost:hover{
@@ -190,9 +180,9 @@ input{
 }
 
 .overlay{
-	background: #eeb084;
-	background: -webkit-linear-gradient(to right, rgb(224, 106, 27), #eeb084);
-	background: linear-gradient(to right, rgb(224, 106, 27), #eeb084);
+	background: #024281;
+	background: -webkit-linear-gradient(to right, #81add8, #024281);
+	background: linear-gradient(to right, #81add8, #024281);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

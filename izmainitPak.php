@@ -79,7 +79,8 @@
                     }else{
 
                     $pakID = $_POST['apskatit'];
-                    $atlasit_pakalpojumu_SQL = "SELECT * FROM pakalpojumi WHERE PakalpojumiID = $pakID"; 
+                    $atlasit_pakalpojumu_SQL = "SELECT * FROM pakalpojumi WHERE Pakalpojumi_ID = $pakID"; 
+                    echo $atlasit_pakalpojumu_SQL;  
                     $atlasa_pakalpojumu = mysqli_query($savienojums, $atlasit_pakalpojumu_SQL);
 
 
@@ -128,7 +129,7 @@
                         </tr>
                             
                             <tr><td>
-                                <button class='btn' type='submit' name='rediget' value='{$ieraksts['PakalpojumiID']}'>
+                                <button class='btn' type='submit' name='rediget' value='{$ieraksts['Pakalpojumi_ID']}'>
                                     Saglabāt</button>
                             </td></tr>
                             

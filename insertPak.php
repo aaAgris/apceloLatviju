@@ -16,7 +16,7 @@ if(isset($_POST['pievienotPak'])){
     if(!empty($Nosaukums)&& !empty($Apraksts) && !empty($Attels) && !empty($Cena)){
        
         $ievietotSQL = "INSERT INTO pakalpojumi(Nosaukums, Attels, Apraksts, Cena, IDlietotajs) 
-        VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Cena', $lietotajaID)";
+        VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Cena', '$lietotajaID')";
  
         if(mysqli_query($savienojums,$ievietotSQL)){
             echo "DB veiksmīgi pievienots ieraksts!";

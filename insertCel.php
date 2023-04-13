@@ -17,7 +17,7 @@ if(isset($_POST['pievienotCel'])){
     if(!empty($Nosaukums)&& !empty($Apraksts) && !empty($Attels) && !empty($Cena) && !empty($Lokacija)){
        
         $ievietotSQL = "INSERT INTO galamerkis(Nosaukums, Attels, Apraksts, Lokacija, Cena, ID_lietotajs) 
-        VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Lokacija', '$Cena', $lietotajaID)";
+        VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Lokacija', '$Cena', '$lietotajaID')";
  
         if(mysqli_query($savienojums,$ievietotSQL)){
             echo "DB veiksmīgi pievienots ieraksts!";
