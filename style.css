@@ -627,5 +627,21 @@ button:focus {
       border-radius: 8px;
   }
 
+  .btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.8rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color:#fff;
+    background:rgba(255, 128, 64, 0.9);
+    border-radius: 20px;
+    box-shadow:  10px 5px 15px black;
+}
+
+.btn:hover{
+    background:lightcoral;
+}
+
 
 

@@ -29,7 +29,7 @@ session_start();
                 
                 <?php
                  if(isset($_SESSION['lietotajvards'])): ?>
-                  <li> <button id=button ><a href="logout.php">Izlogoties</a></button></li>
+                  <li><a href="logout.php">Izlogoties</a></li>
                 <?php endif; ?>
                 
             </ul>
@@ -67,6 +67,16 @@ session_start();
   <section id="pakalpojumi">
 
     <h2>Mēs piedāvājam vairākus pakalpojumus</h2>
+    <?php
+                 if(isset($_SESSION['lietotajvards'])): ?>
+                  <form action='pievienotPak.php' method='post'>
+                                        <button type='submit' name='pievienot' 
+                                        value="{$ieraksts['PakalpojumiID']}" class='btn'>
+                                            Pievienot pakalpojumu <i class="fa fa-plus-circle"></i>
+                                       </button>
+                  </form>
+                <?php endif; ?>
+    
     <div class="box-container">
 
         <div class="box">
