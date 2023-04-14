@@ -21,19 +21,19 @@
                         
                         
                         $atjaunot_attelu_SQL = "UPDATE pakalpojumi SET Attels = 
-                        '$atlasitais_Attels' WHERE PakalpojumiID = ".$_POST['rediget'];
+                        '$atlasitais_Attels' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
 
                         $atjaunot_aprakstu_SQL = "UPDATE pakalpojumi SET Apraksts = 
-                        '$atlasitais_Apraksts' WHERE PakalpojumiID = ".$_POST['rediget'];
+                        '$atlasitais_Apraksts' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
 
                         $atjaunot_nosaukumu_SQL = "UPDATE pakalpojumi SET Nosaukums = 
-                        '$atlasitais_Nosaukums' WHERE PakalpojumiID = ".$_POST['rediget'];
+                        '$atlasitais_Nosaukums' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
 
                         $atjaunot_cenu_SQL = "UPDATE pakalpojumi SET Cena = 
-                        '$atlasita_Cena' WHERE PakalpojumiID = ".$_POST['rediget'];
+                        '$atlasita_Cena' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
 
                         $atjaunot_liet_SQL = "UPDATE pakalpojumi SET IDLietotajs = 
-                        '$atlasitais_Liet' WHERE PakalpojumiID = ".$_POST['rediget'];
+                        '$atlasitais_Liet' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
         
                         if(mysqli_query($savienojums, $atjaunot_attelu_SQL)){
                             echo "<div class='pieteiksanaskluda zals'>Izmaiņas veiksmīgi veiktas!</div>";
@@ -78,7 +78,7 @@
 
                     }else{
 
-                    $pakID = $_POST['apskatit'];
+                    $pakID = $_POST['izmainit'];
                     $atlasit_pakalpojumu_SQL = "SELECT * FROM pakalpojumi WHERE Pakalpojumi_ID = $pakID"; 
                     echo $atlasit_pakalpojumu_SQL;  
                     $atlasa_pakalpojumu = mysqli_query($savienojums, $atlasit_pakalpojumu_SQL);

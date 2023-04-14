@@ -664,6 +664,22 @@ button:focus {
   text-decoration: none;
 }
 
+.btn2{
+  display:inline-flex;
+  padding:.6rem 1.5rem ;
+  font-size: 1.5rem;
+  font-weight:200;
+  cursor: pointer;
+  color:#fff;
+  background:rgba(255, 128, 64, 0.9);
+  border-radius:20px;
+  box-shadow: 10px 5px 15px black;
+}
+
+.btn2:hover{
+  background:lightcoral;
+}
+
 .admin .row{
   margin-top: 10rem;
   display: flex;
@@ -750,7 +766,7 @@ text-align:center;
 #jaunumi3 article{
   padding: 20px;
   margin: 30px;
-  margin-top: 120px;
+  margin-top: 120px;  
   border-radius: 15px;
   background-image: url(images/firework.jpg);
   background-repeat: no-repeat;

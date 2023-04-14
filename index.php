@@ -75,18 +75,25 @@ session_start();
                                             Pievienot pakalpojumu <i class="fa fa-plus-circle"></i>
                                        </button>
                   </form>
-                  <form action="izmainitPak.php" method="post">
-                                        <button type="submit" name="apskatit" 
-                                        value="{$ieraksts['Pakalpojumi_ID']}" class="btn">
-                                            Rediget pakalpojumu <i class='fa fa-edit'></i>
-                                        </button>
-                    </form>
-                    <form action='delete.php' method='post'>
-                                        <button type='submit' name='delete' 
-                                        value="{$ieraksts['Pakalpojumi_ID']}" class='btn'>
-                                            Izdzēst pakalpojumu<i class='fa fa-trash'></i>
-                                        </button>
-                    </form>
+                  <?php 
+                  require "./connect_db.php";
+                  $atlasit_pak_SQL = "SELECT * FROM pakalpojumi"; 
+                  $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
+
+                  while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
+                    echo "<form action='izmainitPak.php' method='post'>
+                    <button type='submit' name='izmainit' 
+                    value='{$ieraksts['Pakalpojumi_ID']}' class='btn2'><i class='fa fa-edit'></i>
+                    </button>
+                  </form>
+                  <form action='deletePak.php' method='post'>
+                    <button type='submit' name='delete' 
+                    value='{$ieraksts['Pakalpojumi_ID']}' class='btn2'><i class='fa fa-trash'></i>
+                    </button>
+                  </form> ";
+                  }
+                  ?>
+                 
                 <?php endif; ?>
     
     <div class="box-container">
@@ -107,7 +114,10 @@ session_start();
                         <h3>{$ieraksts['Nosaukums']}</h3>
                         <p> {$ieraksts['Apraksts']}</p>
                         <p> {$ieraksts['Cena']} EUR</p>   
-                      </div>";
+                
+                     
+                      </div>
+                      ";
                     }
         ?>
     </div>
@@ -125,15 +135,28 @@ session_start();
                                             Pievienot ceļojumu <i class="fa fa-plus-circle"></i>
                                        </button>
                   </form>
-                  <!--<form action="izmainitCel.php" method="post">
-                                        <button type="submit" name="apskatit" 
-                                        value="{$ieraksts['PakalpojumiID']}" class="btn">
-                                            Rediget pakalpojumu<i class="fas fa-edit"></i>
-                                        </button>
-                                    </form>-->
-                  </form>
-                <?php endif; ?>
+                  <?php 
+                  require "./connect_db.php";
+                  $atlasit_pak_SQL = "SELECT * FROM galamerkis"; 
+                  $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
 
+                  while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
+                    echo " <form action='izmainitCel.php' method='post'>
+                    <button type='submit' name='izmainit' 
+                    value='{$ieraksts['GalamID']}' class='btn'>
+                        Rediget ceļojumu <i class='fa fa-edit'></i>
+                    </button>
+                  </form>
+                  <form action='deleteCel.php' method='post'>
+                    <button type='submit' name='delete' 
+                    value='{$ieraksts['GalamID']}' class='btn'>
+                        Izdzēst ceļojumu<i class='fa fa-trash'></i>
+                    </button>
+                  </form> ";
+                  }
+                  ?>
+                 
+                <?php endif; ?>
 
     <?php
                     require "./connect_db.php";
@@ -150,7 +173,8 @@ session_start();
                         <p>{$ieraksts['Cena']} EUR</p>
                         <button class='pieteiktPog'><a href='#pieteikties'>Pieteikties</a></button>
                         </article>
-                    } ";
+
+                     } ";
                   }
         ?>
 
