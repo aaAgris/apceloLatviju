@@ -35,7 +35,6 @@
 
 <div id="pieteiksanas">
     <?php 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             require("connect_db.php");
             if(isset($_POST['gatavs'])){
                 $vards_ievade = $_POST['vards'];
@@ -62,26 +61,19 @@
                         '$celojums_ievade', '$lidzbrauceji_ievade', '$telefona_ievade', '$epasta_ievade', '$komentars_ievade')"; #Ievieto ievadītās vērtības datubāzes tabulā
 
                         if(mysqli_query($savienojums, $pievienot_pieteikumu_SQL)){
-                            echo "<div class='pieteiksanaskluda zals'>
-                            Reģistrācija ir noritējusi veiksmīgi! Uz drīzu sazināšanos!</div>";
+                            echo "
+                            <p>Reģistrācija ir noritējusi veiksmīgi! Uz drīzu sazināšanos!</p>";
                         }else{
-                            echo "<div class='pieteiksanaskluda sarkans'>
-                            Reģistrācija nav izdevusies! Mēģiniet vēlreiz!</div>";
+                            echo "
+                            <p>Reģistrācija nav izdevusies! Mēģiniet vēlreiz!</p>";
                         }
                     }else{
                         echo "<div class='pieteiksanaskluda sarkans'>Reģistrācija nav izdevusies! Kāds no ievades laukiem aizpildīts NEKOREKTI!</div>";
                     }
                 }
-            }else{
+            }
 
     ?>
-        <?php 
-        }}else{
-            echo "<div class='pieteiksanaskluda sarkans'>Kaut kas nogāja greizi!
-            Atgriezies sākumlapā un mēģini vēlreiz!</div>";
-            header("Refresh:2; url=index.php");
-        }
-        ?>
 </div>
 
 <script src="files/script.js"></script>

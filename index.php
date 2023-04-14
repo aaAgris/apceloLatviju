@@ -202,19 +202,20 @@ session_start();
     <article>
       <img class="imagee" src="images/sigulda.jpg">
       <h2>Atlaides Siguldā</h2>
-      <p>Jūrmala ir Latvijas valstspilsēta un lielākā kūrortpilsēta, apmēram 25 kilometrus uz rietumiem no Rīgas. Pilsētas platība ir 100 km2. Jūrmala 24 km garumā stiepjas gar Rīgas līci un Lielupi. 2020. gadā bija 49 687 iedzīvotāji.
-
-        Pilsēta tradicionāli sastāv no atsevišķām daļām (uzskaitītas virzienā no rietumiem uz austrumiem): Ķemeri, Jaunķemeri, Sloka, Kauguri, Vaivari, Asari, Valteri, Melluži, Pumpuri, Jaundubulti, Dubulti, Majori, Dzintari, Bulduri, Lielupe un Priedaine.</p>
+      <p>Lielas atlaides Siguldā.</p>
+      <button class='pieteiktPog'><a href='./aktualitates.php'>Apskatīt</a></button>
   </article>
   <article>
       <img class="imagez" src="images/liepaja.jpg">
       <h2>Vasaras sezona Liepājā</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore? Laudantium optio quam quos ad et maiores iste, tempora atque, mollitia eius soluta expedita reprehenderit a voluptatem. Natus, aperiam quod.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore? </p>
+      <button class='pieteiktPog'><a href='./aktualitates.php'>Apskatīt</a></button>
   </article>
   <article>
       <img class="imagee" src="images/ventspils.jpg">
       <h2>Jaunas atrakcijas Ventspilī</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore? Laudantium optio quam quos ad et maiores iste, tempora atque, mollitia eius soluta expedita reprehenderit a voluptatem. Natus, aperiam quod.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore?</p>
+      <button class='pieteiktPog'><a href='./aktualitates.php'>Apskatīt</a></button>
   </article>
   </section>
 

@@ -747,4 +747,46 @@ text-align:center;
 }
 
 
+#jaunumi3 article{
+  padding: 20px;
+  margin: 30px;
+  margin-top: 120px;
+  border-radius: 15px;
+  background-image: url(images/firework.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 240px;
+  width:auto;
+  border: .1rem solid rgba(0,0,0,0.2);
+  color:#fff;
+  font-weight: 600;
+}
+
+#jaunumi3 article h2{
+  color:024280;
+  margin-bottom: 10px;
+}
+
+#jaunumi3 article p{
+  text-align: justify;
+  font-size: 18px;
+}
+
+#jaunumi3 article .imagee{
+  float:left;
+  height: 170px;
+  margin:10px;
+  width: auto;
+  border-radius: 8px;
+}
+
+#jaunumi3 article .imagez{
+  float:right;
+  height: 170px;
+  margin:10px;
+  width: auto;
+  border-radius: 8px;
+}
+
 
