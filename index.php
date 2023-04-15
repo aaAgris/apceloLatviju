@@ -109,7 +109,6 @@ session_start();
                         <h3>{$ieraksts['Nosaukums']}</h3>
                         <p> {$ieraksts['Apraksts']}</p>
                         <p> {$ieraksts['Cena']} EUR</p>   
-                        </div>
                       
                       ";
                       if(isset($_SESSION['lietotajvards'])){
@@ -125,6 +124,9 @@ session_start();
                       </form> 
                         ";
                       }
+
+                      echo 
+                      "</div> ";
                     }
         ?>
     </div>
@@ -158,7 +160,7 @@ session_start();
                         <p>{$ieraksts['Lokacija']}</p>
                         <p>{$ieraksts['Cena']} EUR</p>
                         <button class='pieteiktPog'><a href='#pieteikties'>Pieteikties</a></button>
-                        </article>";
+                       ";
 
                         if(isset($_SESSION['lietotajvards'])){
                           echo " <form action='izmainitCel.php' method='post'>
@@ -176,6 +178,8 @@ session_start();
                         
                         ";
                         }
+                        echo 
+                    "  </article>";
 
                      } 
                   
@@ -249,7 +253,7 @@ session_start();
                         <p>{$ieraksts['Apraksts']}</p>
                         <p>{$ieraksts['Datums']}</p>
                         <button class='pieteiktPog'><a href='./aktualitates.php'>Apskatīt</a></button>
-                        </article>";
+                     ";
 
                     if(isset($_SESSION['lietotajvards'])){
                       echo " <form action='izmainitJaun.php' method='post'>
@@ -267,6 +271,8 @@ session_start();
                     
                     ";
                     }
+                    echo 
+                    "  </article>";
                   }
      ?>                   
 
