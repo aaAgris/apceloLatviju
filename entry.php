@@ -58,7 +58,7 @@
                     !empty($telefona_ievade) && !empty($celojums_ievade) && !empty($epasta_ievade)){
                         $pievienot_pieteikumu_SQL = "INSERT INTO pieteikums(vards, uzvards, dzimsanasDati, celojums, lidzbrauceji, Telefons,
                         epasts, komentars) VALUES('$vards_ievade','$uzvards_ievade', '$dzim_dati_ievade',
-                        '$celojums_ievade', '$lidzbrauceji_ievade', '$telefona_ievade', '$epasta_ievade', '$komentars_ievade')"; #Ievieto ievadītās vērtības datubāzes tabulā
+                        '$celojums_ievade', '$lidzbrauceju_ievade', '$telefona_ievade', '$epasta_ievade', '$komentars_ievade')"; #Ievieto ievadītās vērtības datubāzes tabulā
 
                         if(mysqli_query($savienojums, $pievienot_pieteikumu_SQL)){
                             echo "

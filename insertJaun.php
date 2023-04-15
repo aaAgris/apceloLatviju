@@ -4,22 +4,21 @@
 require("./connect_db.php");
 session_start();
  
-if(isset($_POST['pievienotCel'])){
+if(isset($_POST['pievienotJaun'])){
     $Nosaukums = $_POST['Nosaukums'];
     $Attels = $_POST['Attels'];
     $Apraksts = $_POST['Apraksts'];
-    $Lokacija = $_POST['Lokacija'];
-    $Cena = $_POST['Cena'];
+    $Datums = $_POST['Datums'];
 
    
-    if(!empty($Nosaukums)&& !empty($Apraksts) && !empty($Attels) && !empty($Cena)){
+    if(!empty($Nosaukums)&& !empty($Apraksts) && !empty($Attels) && !empty($Datums)){
         $atlasit_pak_SQL = "SELECT * FROM lietotajs WHERE  lietotajvards = '$_SESSION[lietotajvards]'"; 
         $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
 
     }  
         while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
-          $ievietotSQL = "INSERT INTO galamerkis(Nosaukums, Attels, Apraksts,Lokacija, Cena, ID_lietotajs) 
-VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Lokacija','$Cena', '{$ieraksts['lietotajs_id']}')";
+          $ievietotSQL = "INSERT INTO jaunumi(Nosaukums, Attels, Apraksts,Datums, IDlietotajs) 
+VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Datums','{$ieraksts['lietotajs_id']}')";
         }
         
  
@@ -32,6 +31,6 @@ VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Lokacija','$Cena', '{$ieraksts['li
  
     }else{
         echo  "Nav aizpildīti visi lauki!";
-        header("Refresh:1;url=pievienotPak.php");
+        header("Refresh:1;url=pievienotJaun.php");
     }
     

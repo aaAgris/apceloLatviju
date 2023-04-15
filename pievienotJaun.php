@@ -10,49 +10,49 @@
 </head>
 
 <?php
-    $page = "pakalpojumi";
-    //require "header.php";
-    session_start();
-    if(!isset($_SESSION['lietotajvards'])){
-        echo "Tev šeit nav pieejas!";
-        header("Refresh:.01; url=index.php");
-    }
+     $page = "jaunumi";
+     //require "header.php";
+     session_start();
+     if(!isset($_SESSION['lietotajvards'])){
+         echo "Tev šeit nav pieejas!";
+         header("Refresh:.01; url=index.php");
+     }
 ?>
 
 <section class="admin">
     <div class="row">
         <div class="info">
-            <div class="head-info head-color">Pievienot jaunu pakalpojumu</div>
+            <div class="head-info head-color">Pievienot jaunu aktualitāti</div>
             <table class="adminTable">
-            <form action="insertPak.php" method='POST'>
+            <form action="insertJaun.php" method='POST'>
                 <tr>
-                            <th>Pakalpojums:</th>
+                            <th>Nosaukums:</th>
                             <td>
-                            <textarea rows = "1" cols = "100" name="Nosaukums" placeholder="Nosaukums" required>Ievadi pakalpojuma nosaukumu*</textarea>
+                            <textarea rows = "1" cols = "100" name="Nosaukums" required>Ievadi aktualitātes nosaukumu*</textarea>
                                 </td>
                         </tr>
                         <tr>
-                        <th>Attels:</th>
+                        <th>Attēls:</th>
                             <td>
-                            <textarea rows = "1" cols = "100" name="Attels" required>Ievadi pakalpojuma attela saiti*</textarea>
+                            <textarea rows = "1" cols = "100" name="Attels" required>Ievadi aktualitātes attela saiti*</textarea>
                                 </td>
                         </tr>
                         <tr>
                             <th>Apraksts:</th>
                             <td>
-                            <textarea rows = "5" cols = "100" name="Apraksts" required>Ievadi pakalpojuma aprakstu*</textarea>
+                            <textarea rows = "5" cols = "100" name="Apraksts" required>Ievadi aktualitātes aprakstu*</textarea>
                                 </td>
                         </tr>
                         <tr>
-                            <th>Cena:</th>
+                            <th>Datums:</th>
                             <td>
-                            <textarea rows = "1" cols = "100" name="Cena" required>Ievadi pakalpojuma cenu*</textarea>
+                            <textarea rows = "5" cols = "100" name="Datums" required>Ievadi aktualitātes datumu gads-menesis-diena*</textarea>
                                 </td>
                         </tr>
-                        
+
                         <tr> <td></td>
                             <td>
-                            <input class="btn" type="submit" id="poga" name="pievienotPak" value="Pievienot">
+                            <input class="btn" type="submit" id="poga" name="pievienotJaun" value="Pievienot">
                             </td>   
                         </tr>
                         <tr>

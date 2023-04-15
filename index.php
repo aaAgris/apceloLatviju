@@ -80,7 +80,7 @@ session_start();
                   $atlasit_pak_SQL = "SELECT * FROM pakalpojumi"; 
                   $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
 
-                  while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
+                 /* while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
                     echo "<form action='izmainitPak.php' method='post'>
                     <button type='submit' name='izmainit' 
                     value='{$ieraksts['Pakalpojumi_ID']}' class='btn2'><i class='fa fa-edit'></i>
@@ -91,7 +91,7 @@ session_start();
                     value='{$ieraksts['Pakalpojumi_ID']}' class='btn2'><i class='fa fa-trash'></i>
                     </button>
                   </form> ";
-                  }
+                  }*/
                   ?>
                  
                 <?php endif; ?>
@@ -103,21 +103,28 @@ session_start();
                     $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
 
                     while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
-                        /*if(empty($ieraksts['Komentars'])){
-                            $Komentars = "<i class='fas fa-times'></i>";
-                        }else{
-                            $Komentars = "<i class='fas fa-check'></i>";
-                        }*/
                         echo "
                         <div class='box'>
                         <img src='{$ieraksts['Attels']}'>
                         <h3>{$ieraksts['Nosaukums']}</h3>
                         <p> {$ieraksts['Apraksts']}</p>
                         <p> {$ieraksts['Cena']} EUR</p>   
-                
-                     
-                      </div>
+                        </div>
+                      
                       ";
+                      if(isset($_SESSION['lietotajvards'])){
+                        echo "<form action='izmainitPak.php' method='post'>
+                        <button type='submit' name='izmainit' 
+                        value='{$ieraksts['Pakalpojumi_ID']}' class='btn2'><i class='fa fa-edit'></i>
+                        </button>
+                      </form>
+                      <form action='deletePak.php' method='post'>
+                        <button type='submit' name='delete' 
+                        value='{$ieraksts['Pakalpojumi_ID']}' class='btn2'><i class='fa fa-trash'></i>
+                        </button>
+                      </form> 
+                        ";
+                      }
                     }
         ?>
     </div>
@@ -135,27 +142,6 @@ session_start();
                                             Pievienot ceļojumu <i class="fa fa-plus-circle"></i>
                                        </button>
                   </form>
-                  <?php 
-                  require "./connect_db.php";
-                  $atlasit_pak_SQL = "SELECT * FROM galamerkis"; 
-                  $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
-
-                  while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
-                    echo " <form action='izmainitCel.php' method='post'>
-                    <button type='submit' name='izmainit' 
-                    value='{$ieraksts['GalamID']}' class='btn'>
-                        Rediget ceļojumu <i class='fa fa-edit'></i>
-                    </button>
-                  </form>
-                  <form action='deleteCel.php' method='post'>
-                    <button type='submit' name='delete' 
-                    value='{$ieraksts['GalamID']}' class='btn'>
-                        Izdzēst ceļojumu<i class='fa fa-trash'></i>
-                    </button>
-                  </form> ";
-                  }
-                  ?>
-                 
                 <?php endif; ?>
 
     <?php
@@ -172,10 +158,27 @@ session_start();
                         <p>{$ieraksts['Lokacija']}</p>
                         <p>{$ieraksts['Cena']} EUR</p>
                         <button class='pieteiktPog'><a href='#pieteikties'>Pieteikties</a></button>
-                        </article>
+                        </article>";
 
-                     } ";
-                  }
+                        if(isset($_SESSION['lietotajvards'])){
+                          echo " <form action='izmainitCel.php' method='post'>
+                        <button type='submit' name='izmainit' 
+                        value='{$ieraksts['GalamID']}' class='btn'>
+                        Rediget ceļojumu <i class='fa fa-edit'></i>
+                        </button>
+                       </form>
+                     <form action='deleteCel.php' method='post'>
+                      <button type='submit' name='delete' 
+                      value='{$ieraksts['GalamID']}' class='btn'>
+                        Izdzēst ceļojumu<i class='fa fa-trash'></i>
+                     </button>
+                     </form> 
+                        
+                        ";
+                        }
+
+                     } 
+                  
         ?>
 
   </section>
@@ -223,24 +226,50 @@ session_start();
 
   <section id="jaunumi">
     <h2>Jaunākās aktualitātes</h2>
-    <article>
-      <img class="imagee" src="images/sigulda.jpg">
-      <h2>Atlaides Siguldā</h2>
-      <p>Lielas atlaides Siguldā.</p>
-      <button class='pieteiktPog'><a href='./aktualitates.php'>Apskatīt</a></button>
-  </article>
-  <article>
-      <img class="imagez" src="images/liepaja.jpg">
-      <h2>Vasaras sezona Liepājā</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore? </p>
-      <button class='pieteiktPog'><a href='./aktualitates.php'>Apskatīt</a></button>
-  </article>
-  <article>
-      <img class="imagee" src="images/ventspils.jpg">
-      <h2>Jaunas atrakcijas Ventspilī</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolore?</p>
-      <button class='pieteiktPog'><a href='./aktualitates.php'>Apskatīt</a></button>
-  </article>
+    <?php
+                 if(isset($_SESSION['lietotajvards'])): ?>
+                  <form action='pievienotJaun.php' method='post'>
+                                        <button type='submit' name='pievienot' 
+                                        value="{$ieraksts['JaunumiID']}" class='btn'>
+                                            Pievienot aktualitāti <i class="fa fa-plus-circle"></i>
+                                       </button>
+                  </form>
+                <?php endif; ?>
+
+    <?php
+                    require "./connect_db.php";
+                    $atlasit_jaun_SQL = "SELECT * FROM jaunumi"; 
+                    $atlasa_jaun = mysqli_query($savienojums, $atlasit_jaun_SQL);
+
+                    while($ieraksts = mysqli_fetch_assoc($atlasa_jaun)){
+                        echo "
+                        <article>
+                        <img src ={$ieraksts['Attels']} class='imagez'>
+                        <h2>{$ieraksts['Nosaukums']}</h2>
+                        <p>{$ieraksts['Apraksts']}</p>
+                        <p>{$ieraksts['Datums']}</p>
+                        <button class='pieteiktPog'><a href='./aktualitates.php'>Apskatīt</a></button>
+                        </article>";
+
+                    if(isset($_SESSION['lietotajvards'])){
+                      echo " <form action='izmainitJaun.php' method='post'>
+                    <button type='submit' name='izmainit' 
+                    value='{$ieraksts['JaunumiID']}' class='btn'>
+                    Rediget aktualitāti <i class='fa fa-edit'></i>
+                    </button>
+                   </form>
+                 <form action='deleteJaun.php' method='post'>
+                  <button type='submit' name='delete' 
+                  value='{$ieraksts['JaunumiID']}' class='btn'>
+                    Izdzēst aktualitāti<i class='fa fa-trash'></i>
+                 </button>
+                 </form> 
+                    
+                    ";
+                    }
+                  }
+     ?>                   
+
   </section>
 
   <footer id="parmums">

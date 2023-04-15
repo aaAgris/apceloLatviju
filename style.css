@@ -130,6 +130,16 @@ height: 17rem;
     padding:1rem 0;
 }
 
+/*#pakalpojumi .box-container .box form{
+  display: inline;
+}
+
+#pakalpojumi .box-container .box form button{
+  display: inline;
+  margin-top: 20px;
+  margin-right: 10px;
+}*/
+
 
 #celojumi h2{
     text-align: center;
@@ -168,6 +178,15 @@ height: 17rem;
     color:#666;
     padding:1rem 0;
 }
+
+/*#celojumi article form{
+  display: inline;
+}
+
+#celojumi article form button{
+  display: inline;
+  margin-left: 10px;
+}*/
 
 #pieteikties h2{
     text-align: center;
@@ -763,10 +782,13 @@ text-align:center;
 }
 
 
+#jaunumi3{
+  margin-top: 150px;
+}
+
 #jaunumi3 article{
   padding: 20px;
   margin: 30px;
-  margin-top: 120px;  
   border-radius: 15px;
   background-image: url(images/firework.jpg);
   background-repeat: no-repeat;

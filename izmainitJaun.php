@@ -1,5 +1,5 @@
 <?php
-    $page = "pakalpojumi";
+    $page = "jaunumi";
     //require "header.php";
     session_start();
     if(!isset($_SESSION['lietotajvards'])){
@@ -11,7 +11,7 @@
 <section class="admin">
     <div class="row">
         <div class="info">
-            <div class="head-info head-color">Pakalpojuma info:</div>
+            <div class="head-info head-color">Aktualitāšu info:</div>
             <?php
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     require "./connect_db.php";
@@ -21,20 +21,20 @@
                         $atlasitais_Attels = $_POST['Attels'];
                         $atlasitais_Apraksts = $_POST['Apraksts'];
                         $atlasitais_Nosaukums = $_POST['Nosaukums'];
-                        $atlasita_Cena = $_POST['Cena'];
+                        $atlasitais_Datums = $_POST['Datums'];
                         
                         
-                        $atjaunot_attelu_SQL = "UPDATE pakalpojumi SET Attels = 
-                        '$atlasitais_Attels' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
+                        $atjaunot_attelu_SQL = "UPDATE jaunumi SET Attels = 
+                        '$atlasitais_Attels' WHERE JaunumiID = ".$_POST['rediget'];
 
-                        $atjaunot_aprakstu_SQL = "UPDATE pakalpojumi SET Apraksts = 
-                        '$atlasitais_Apraksts' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
+                        $atjaunot_aprakstu_SQL = "UPDATE jaunumi SET Apraksts = 
+                        '$atlasitais_Apraksts' WHERE JaunumiID = ".$_POST['rediget'];
 
-                        $atjaunot_nosaukumu_SQL = "UPDATE pakalpojumi SET Nosaukums = 
-                        '$atlasitais_Nosaukums' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
+                        $atjaunot_nosaukumu_SQL = "UPDATE jaunumi SET Nosaukums = 
+                        '$atlasitais_Nosaukums' WHERE JaunumiID = ".$_POST['rediget'];
 
-                        $atjaunot_cenu_SQL = "UPDATE pakalpojumi SET Cena = 
-                        '$atlasita_Cena' WHERE Pakalpojumi_ID = ".$_POST['rediget'];
+                        $atjaunot_datumu_SQL = "UPDATE jaunumi SET Datums = 
+                        '$atlasitais_Datums' WHERE JaunumiID = ".$_POST['rediget'];
 
         
                         if(mysqli_query($savienojums, $atjaunot_attelu_SQL)){
@@ -61,7 +61,7 @@
                             header("Refresh:1; url=index.php");
                         }
 
-                        if(mysqli_query($savienojums, $atjaunot_cenu_SQL)){
+                        if(mysqli_query($savienojums, $atjaunot_datumu_SQL)){
                             
                             header("Refresh:1; url=index.php"); 
                         }else{
@@ -69,28 +69,39 @@
                             header("Refresh:1; url=index.php");
                         }
 
+                        
+
+
 
 
                     }else{
 
-                    $pakID = $_POST['izmainit'];
-                    $atlasit_pakalpojumu_SQL = "SELECT * FROM pakalpojumi WHERE Pakalpojumi_ID = $pakID"; 
-                    echo $atlasit_pakalpojumu_SQL;  
-                    $atlasa_pakalpojumu = mysqli_query($savienojums, $atlasit_pakalpojumu_SQL);
+                    $JaunID = $_POST['izmainit'];
+                    $atlasit_jaunumus_SQL = "SELECT * FROM jaunumi WHERE JaunumiID = $JaunID";  
+                    $atlasa_jaunumus = mysqli_query($savienojums, $atlasit_jaunumus_SQL);
 
 
-                    while($ieraksts = mysqli_fetch_assoc($atlasa_pakalpojumu)){
+                    while($ieraksts = mysqli_fetch_assoc($atlasa_jaunumus)){
                         echo "
-                        <form action='izmainitPak.php' method='POST'>
+                        <form action='izmainitJaun.php' method='POST'>
                             <table>
                             <tr>
                                 <td>
-                                Pakalpojums:
+                                Aktualitāte:
                                 </td>
                                 <td class='value'><textarea rows = '5' cols = '60' 
                                 name = 'Nosaukums'>{$ieraksts['Nosaukums']}</textarea>
                                 <td>
                             </tr>
+
+                            <tr>
+                                <td>Attēls:
+                                </td>
+                                <td class='value'><textarea rows = '5' cols = '60' 
+                                name = 'Attels'>{$ieraksts['Attels']}</textarea>
+                                <td>
+                            </tr>
+
                             <tr>
                                 <td>
                                 Apraksts:
@@ -100,24 +111,17 @@
                                 name = 'Apraksts'>{$ieraksts['Apraksts']}</textarea>
                                 <td>
                             </tr>
-                            <tr>
-                                <td>Attels:
-                                </td>
-                                <td class='value'><textarea rows = '5' cols = '60' 
-                                name = 'Attels'>{$ieraksts['Attels']}</textarea>
-                                <td>
-                            </tr>
-                            <tr>
-                                <td>Cena:
-                                </td>
-                                <td class='value'><textarea rows = '5' cols = '60' 
-                                name = 'Cena'>{$ieraksts['Cena']}</textarea>
-                                <td>
-                            </tr>
 
+                            <tr>
+                                <td>Datums:
+                                </td>
+                                <td class='value'><textarea rows = '5' cols = '60' 
+                                name = 'Datums'>{$ieraksts['Datums']}</textarea>
+                                <td>
+                            </tr>
                             
                             <tr><td>
-                                <button class='btn' type='submit' name='rediget' value='{$ieraksts['Pakalpojumi_ID']}'>
+                                <button class='btn' type='submit' name='rediget' value='{$ieraksts['JaunumiID']}'>
                                     Saglabāt</button>
                             </td></tr>
                             
@@ -129,7 +133,7 @@
                 }}else{
                     echo "<div class='pieteiksanaskluda sarkans'>Kaut kas nogāja greizi!
                     Atgriezies iepriekšējā lapā un mēģini vēlreiz!</div>";
-                    header("Refresh:1; url=izmainitPak.php");
+                    header("Refresh:1; url=izmainitJaun.php");
                 }
             ?>
         </div>
