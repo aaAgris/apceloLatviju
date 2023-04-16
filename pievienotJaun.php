@@ -14,9 +14,10 @@
      //require "header.php";
      session_start();
      if(!isset($_SESSION['lietotajvards'])){
-         echo "Tev šeit nav pieejas!";
-         header("Refresh:.01; url=index.php");
-     }
+        echo "Tev šeit nav pieejas!";
+        header("Location: login.php");
+    exit();
+    }
 ?>
 
 <section class="admin">

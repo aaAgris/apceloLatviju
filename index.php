@@ -32,11 +32,21 @@ session_start();
                   <li><a href="logout.php">Izlogoties</a></li>
                 <?php endif; ?>
                 
+
+                <?php
+                if(isset($_SESSION['lietotajvards'])){ 
+                  $is_admin = $_SESSION['irAdmins'];
+                  if($is_admin){
+                    echo "
+                  <li><a href='moderatori.php'>Moderatori</a></li>
+                  ";
+                  }
+                }?>
+                
             </ul>
         </nav>
     </header>
 
-    <!--<button onClick="openForm()"><i class="fa fa-lock"></i></button> -->
     
 <section  id="home">
 <div class="slideShow">
@@ -75,24 +85,6 @@ session_start();
                                             Pievienot pakalpojumu <i class="fa fa-plus-circle"></i>
                                        </button>
                   </form>
-                  <?php 
-                  require "./connect_db.php";
-                  $atlasit_pak_SQL = "SELECT * FROM pakalpojumi"; 
-                  $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
-
-                 /* while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
-                    echo "<form action='izmainitPak.php' method='post'>
-                    <button type='submit' name='izmainit' 
-                    value='{$ieraksts['Pakalpojumi_ID']}' class='btn2'><i class='fa fa-edit'></i>
-                    </button>
-                  </form>
-                  <form action='deletePak.php' method='post'>
-                    <button type='submit' name='delete' 
-                    value='{$ieraksts['Pakalpojumi_ID']}' class='btn2'><i class='fa fa-trash'></i>
-                    </button>
-                  </form> ";
-                  }*/
-                  ?>
                  
                 <?php endif; ?>
     

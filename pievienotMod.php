@@ -10,7 +10,7 @@
 </head>
 
 <?php
-    $page = "pakalpojumi";
+    $page = "moderatori ";
     //require "header.php";
     session_start();
     if(!isset($_SESSION['lietotajvards'])){
@@ -23,37 +23,31 @@
 <section class="admin">
     <div class="row">
         <div class="info">
-            <div class="head-info head-color">Pievienot jaunu pakalpojumu</div>
+            <div class="head-info head-color">Pievienot jaunu moderatoru</div>
             <table class="adminTable">
-            <form action="insertPak.php" method='POST'>
+            <form action="insertMod.php" method='POST'>
                 <tr>
-                            <th>Pakalpojums:</th>
+                            <th>Lietotājvārds:</th>
                             <td>
-                            <textarea rows = "1" cols = "100" name="Nosaukums" placeholder="Nosaukums" required>Ievadi pakalpojuma nosaukumu*</textarea>
+                            <textarea rows = "1" cols = "100" name="Lietotajvards" placeholder="Lietotajvards" required>Ievadi moderatora lietotājvārdu*</textarea>
                                 </td>
                         </tr>
                         <tr>
-                        <th>Attels:</th>
+                        <th>Parole:</th>
                             <td>
-                            <textarea rows = "1" cols = "100" name="Attels" required>Ievadi pakalpojuma attela saiti*</textarea>
+                            <textarea rows = "1" cols = "100" name="Parole" required>Ievadi moderatora paroli*</textarea>
                                 </td>
                         </tr>
                         <tr>
-                            <th>Apraksts:</th>
+                            <th>Atļaujas:</th>
                             <td>
-                            <textarea rows = "5" cols = "100" name="Apraksts" required>Ievadi pakalpojuma aprakstu*</textarea>
-                                </td>
-                        </tr>
-                        <tr>
-                            <th>Cena:</th>
-                            <td>
-                            <textarea rows = "1" cols = "100" name="Cena" required>Ievadi pakalpojuma cenu*</textarea>
+                            <textarea rows = "5" cols = "100" name="Atlaujas" required>Ievadi moderatora atļaujas*</textarea>
                                 </td>
                         </tr>
                         
                         <tr> <td></td>
                             <td>
-                            <input class="btn" type="submit" id="poga" name="pievienotPak" value="Pievienot">
+                            <input class="btn" type="submit" id="poga" name="pievienotMod" value="Pievienot">
                             </td>   
                         </tr>
                         <tr>

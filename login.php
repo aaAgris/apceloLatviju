@@ -35,6 +35,8 @@
 			while($row = mysqli_fetch_array($rezultats)){
 				if(password_verify($Parole, $row["parole"])){
 					$_SESSION["lietotajvards"] = $Lietotajvards;
+					$irAdmins = $row['irAdmins'];
+					$_SESSION['irAdmins'] = $irAdmins;
 					header("location:index.php");
 				}else{
 					echo "<p class='p2'>Nepareizs lietotajvards vai parole!</p>";

@@ -10,6 +10,16 @@
     text-decoration: none;
 }
 
+:root{
+  --main-color:#6e8ae8;
+  --black:#555;
+  --light-color:#777;
+  --bg:#e9f3fc;
+  --border:.1rem solid rgba(0,0,0,.1);
+  --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+  --radius: .5rem;
+}
+
 
 
 header{
@@ -836,4 +846,43 @@ text-align:center;
   border-radius: 8px;
 }
 
+#moderatori .box-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  gap:1.5rem;
+}
+
+#moderatori .box-container .box{
+  text-align: center;
+  border:var(--border);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--radius);
+  padding:4rem 2rem;
+}
+
+.adminTabula2{
+  height: 30rem;
+  width: 100%; 
+}
+
+
+
+
+#moderatori .box-container .box img{
+  height: 30rem;
+  width: 100%;
+}
+
+#moderatori .box-container .box h3{
+  color:var(--black);
+  font-size: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+#moderatori .box-container .box p{
+  color:var(--light-color);
+  font-size: 1.5rem;
+  padding:1rem 0;
+  line-height: 1.8;
+}
 

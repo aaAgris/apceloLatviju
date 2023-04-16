@@ -4,7 +4,8 @@
     session_start();
     if(!isset($_SESSION['lietotajvards'])){
         echo "Tev šeit nav pieejas!";
-        header("Refresh:.01; url=index.php");
+        header("Location: login.php");
+    exit();
     }
 ?>
 
