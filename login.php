@@ -13,18 +13,18 @@
 
 
 
-
 <?php
 	if(isset($_POST["Ielogoties"])){
 		require "./connect_db.php";
-
 		session_start();
+		
 
 		$Lietotajvards = mysqli_real_escape_string($savienojums, 
 		$_POST["Lietotajvards"]);
 
 		$Parole = mysqli_real_escape_string($savienojums, 
 		$_POST["Parole"]);
+		$_SESSION['parole'] = (string) $Parole;
 
 		$sqlVaicajums = "SELECT * FROM lietotajs WHERE
 		lietotajvards = '$Lietotajvards'";
@@ -36,7 +36,9 @@
 				if(password_verify($Parole, $row["parole"])){
 					$_SESSION["lietotajvards"] = $Lietotajvards;
 					$irAdmins = $row['irAdmins'];
+					$lietotajs_id = $row['lietotajs_id'];
 					$_SESSION['irAdmins'] = $irAdmins;
+					$_SESSION['lietotajs_id'] = $lietotajs_id;
 					header("location:index.php");
 				}else{
 					echo "<p class='p2'>Nepareizs lietotajvards vai parole!</p>";

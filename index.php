@@ -19,19 +19,18 @@ session_start();
         <div class="logo"> <img src="images/ApskatiLV_Logo.png"></div>
         <nav class="nav">
             <ul>
-                <li><a href="#home">Sākums</a></li>
-                <li><a href="#pakalpojumi">Pakalpojumi</a></li>
-                <li><a href="#celojumi">Ceļojumi</a></li>
-                <li><a href="#pieteikties">Pieteikties</a></li>
-                <li><a href="#jaunumi">Jaunumi</a></li>
-                <li><a href="#parmums">Par Mums</a></li>
+                <li><a href="./index.php#home">Sākums</a></li>
+                <li><a href="./index.php#pakalpojumi">Pakalpojumi</a></li>
+                <li><a href="./index.php#celojumi">Ceļojumi</a></li>
+                <li><a href="./index.php#pieteikties">Pieteikties</a></li>
+                <li><a href="./index.php#jaunumi">Jaunumi</a></li>
+                <li><a href="./index.php#parmums">Par Mums</a></li>
                 <li><a href="./login.php"><i class="fa fa-lock"></i></a></li>
-                
-                <?php
+          
+                  <?php
                  if(isset($_SESSION['lietotajvards'])): ?>
-                  <li><a href="logout.php">Izlogoties</a></li>
+                  <li><a href="profils.php"><i class="fa fa-user-circle"></i></a></li>
                 <?php endif; ?>
-                
 
                 <?php
                 if(isset($_SESSION['lietotajvards'])){ 
@@ -42,6 +41,10 @@ session_start();
                   ";
                   }
                 }?>
+                <?php
+                 if(isset($_SESSION['lietotajvards'])): ?>
+                  <li><a href="logout.php">Izlogoties</a></li>
+                <?php endif; ?>
                 
             </ul>
         </nav>

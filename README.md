@@ -10,4 +10,13 @@ Darba gaita:
 - [x] Izveidota datubāze
 - [x] Pievienot pakalpojumu
 - [x] Pievienot ceļojumu
+- [x] Pievienot aktualitāti
+- [x] Rediģēt pakalpojumu
+- [x] Rediģēt ceļojumu
+- [x] Rediģēt aktualitāti
+- [x] Dzēst pakalpojumu
+- [x] Dzēst ceļojumu
+- [x] Dzēst aktualitāti
+- [x] Moderatoru pārvaldes logs
+- [x] Profila logs
 

@@ -14,8 +14,6 @@ if(isset($_POST['pievienotPak'])){
     $Attels = $_POST['Attels'];
     $Apraksts = $_POST['Apraksts'];
     $Cena = $_POST['Cena'];
-
-    //$lietotajaID = "SELECT lietotajs_id FROM lietotajs WHERE lietotajvards = lietotajvards";  
     
 
 

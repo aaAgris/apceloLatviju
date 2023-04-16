@@ -15,7 +15,7 @@ session_start();
 
 
 <body>
-<header>
+    <header>
         <div class="logo"> <img src="images/ApskatiLV_Logo.png"></div>
         <nav class="nav">
             <ul>
@@ -26,12 +26,11 @@ session_start();
                 <li><a href="./index.php#jaunumi">Jaunumi</a></li>
                 <li><a href="./index.php#parmums">Par Mums</a></li>
                 <li><a href="./login.php"><i class="fa fa-lock"></i></a></li>
-                
-                <?php
+          
+                  <?php
                  if(isset($_SESSION['lietotajvards'])): ?>
-                  <li><a href="logout.php">Izlogoties</a></li>
+                  <li><a href="profils.php"><i class="fa fa-user-circle"></i></a></li>
                 <?php endif; ?>
-                
 
                 <?php
                 if(isset($_SESSION['lietotajvards'])){ 
@@ -42,6 +41,10 @@ session_start();
                   ";
                   }
                 }?>
+                <?php
+                 if(isset($_SESSION['lietotajvards'])): ?>
+                  <li><a href="logout.php">Izlogoties</a></li>
+                <?php endif; ?>
                 
             </ul>
         </nav>

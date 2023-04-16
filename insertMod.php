@@ -14,6 +14,8 @@ if(isset($_POST['pievienotMod'])){
     $Lietotajvards = $_POST['Lietotajvards'];
     $Parole = $_POST['Parole'];
     $Atlaujas = $_POST['Atlaujas'];
+
+    $Parole = password_hash($Parole, PASSWORD_DEFAULT);
     
 
     if(!empty($Lietotajvards)&& !empty($Parole)){

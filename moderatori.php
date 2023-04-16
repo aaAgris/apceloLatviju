@@ -43,8 +43,8 @@
                                 <td style='width:20rem;'>{$ieraksts['parole']}</td>
                                 <td>{$ieraksts['irAdmins']}</td>
                                 <td>
-                                    <form action='moderators.php' method='post'>
-                                        <button type='submit' name='apskatit' 
+                                    <form action='izmainitMod.php' method='post'>
+                                        <button type='submit' name='izmainit' 
                                         value='{$ieraksts['lietotajs_id']}' class='btn2'>
                                             <i class='fa fa-edit'></i>
                                         </button>
