@@ -11,10 +11,10 @@
 }
 
 :root{
-  --main-color:#6e8ae8;
+  --main-color:rgba(255, 128, 64, 0.9);
   --black:#555;
   --light-color:#777;
-  --bg:#e9f3fc;
+  --bg:#FDEEDC;
   --border:.1rem solid rgba(0,0,0,.1);
   --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
   --radius: .5rem;
@@ -884,5 +884,59 @@ text-align:center;
   font-size: 1.5rem;
   padding:1rem 0;
   line-height: 1.8;
+}
+
+.pieteiksanaskluda{
+  font-size: 2rem;
+  text-align: center;
+  margin: 5rem;
+  margin-top:200px;
+  padding: 3rem;
+  color: #eee;
+  border-radius: var(--radius);
+  border:var(--border);
+}
+
+.pieteiksanaskluda a{
+  color: #ccc;
+  font-weight: bold;
+}
+
+.pieteiksanaskluda a:hover{
+  color: #eee;
+  text-decoration: underline;
+}
+
+.pieteiksanaskluda.sarkans{
+  background: #a14141;
+}
+
+.pieteiksanaskluda.zals{
+  background: #2b850f
+}
+
+.pazinojums{
+  position: fixed;
+  bottom:0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  text-align: center;
+  background: var(--main-color);
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  padding:3rem 9%;
+  font-size: 2rem;
+  display: block;
+}
+
+.pazinojums p{
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 

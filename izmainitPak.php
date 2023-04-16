@@ -1,6 +1,6 @@
 <?php
     $page = "pakalpojumi";
-    //require "header.php";
+    require "header.php";
     session_start();
     if(!isset($_SESSION['lietotajvards'])){
         echo "Tev šeit nav pieejas!";
@@ -75,8 +75,7 @@
                     }else{
 
                     $pakID = $_POST['izmainit'];
-                    $atlasit_pakalpojumu_SQL = "SELECT * FROM pakalpojumi WHERE Pakalpojumi_ID = $pakID"; 
-                    echo $atlasit_pakalpojumu_SQL;  
+                    $atlasit_pakalpojumu_SQL = "SELECT * FROM pakalpojumi WHERE Pakalpojumi_ID = $pakID";  
                     $atlasa_pakalpojumu = mysqli_query($savienojums, $atlasit_pakalpojumu_SQL);
 
 

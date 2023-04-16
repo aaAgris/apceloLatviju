@@ -1,5 +1,5 @@
 <?php
-
+require "header.php";
 
 require("./connect_db.php");
 session_start();

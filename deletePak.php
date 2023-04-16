@@ -1,6 +1,6 @@
 <?php
     require "./connect_db.php";
-    
+    require "header.php";
     
     if(isset($_POST['delete'])){
         $izdzest_ierakstu_SQL = "DELETE FROM pakalpojumi 

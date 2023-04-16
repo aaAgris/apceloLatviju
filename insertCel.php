@@ -1,5 +1,5 @@
 <?php
-
+require "header.php";
 
 require("./connect_db.php");
 session_start();
@@ -8,6 +8,7 @@ if(!isset($_SESSION['lietotajvards'])){
     header("Location: login.php");
 exit();
 }
+
  
 if(isset($_POST['pievienotCel'])){
     $Nosaukums = $_POST['Nosaukums'];

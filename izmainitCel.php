@@ -1,6 +1,6 @@
 <?php
     $page = "celojumi";
-    //require "header.php";
+    require "header.php";
     session_start();
     if(!isset($_SESSION['lietotajvards'])){
         echo "Tev šeit nav pieejas!";
