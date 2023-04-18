@@ -11,8 +11,7 @@
 
 <?php
     $page = "pakalpojumi";
-    //require "header.php";
-    session_start();
+    require "header.php";
     if(!isset($_SESSION['lietotajvards'])){
         echo "Tev šeit nav pieejas!";
         header("Location: login.php");
@@ -25,7 +24,7 @@
         <div class="info">
             <div class="head-info head-color">Pievienot jaunu pakalpojumu</div>
             <table class="adminTable">
-            <form action="insertPak.php" method='POST'>
+            <form action="insertPak.php" method='POST' enctype="multipart/form-data">
                 <tr>
                             <th>Pakalpojums:</th>
                             <td>
@@ -33,9 +32,9 @@
                                 </td>
                         </tr>
                         <tr>
-                        <th>Attels:</th>
+                        <th><label for="service-photo">Pakalpojuma attēls*</label></th>
                             <td>
-                            <textarea rows = "1" cols = "100" name="Attels" required>Ievadi pakalpojuma attela saiti*</textarea>
+                             <input type="file" id="service-photo" name="service_photo" required><br>
                                 </td>
                         </tr>
                         <tr>
@@ -58,7 +57,7 @@
                         </tr>
                         <tr>
                             <td>
-                        <button class="btn" id="signUp"><a href="./index.php">Doties uz sākuma lapu</button>
+                        <button class="btn" id="signUp"><a href="./index.php#home">Doties uz sākuma lapu</button>
                             </td>
                         </tr>
 </form>
@@ -68,5 +67,5 @@
 </section>
 
 <?php
-    //include "footer.php";
+    include "footer.php";
 ?>

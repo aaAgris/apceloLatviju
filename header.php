@@ -16,7 +16,7 @@ session_start();
 
 <body>
     <header>
-        <div class="logo"> <img src="images/ApskatiLV_Logo.png"></div>
+        <div class="logo"> <a href="./index.php#home"> <img src="images/ApskatiLV_Logo.png"></a></div>
         <nav class="nav">
             <ul>
                 <li><a href="./index.php#home">Sākums</a></li>

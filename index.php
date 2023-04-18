@@ -16,7 +16,7 @@ session_start();
 
 <body>
     <header>
-        <div class="logo"> <img src="images/ApskatiLV_Logo.png"></div>
+        <div class="logo">  <a href="./index.php#home"> <img src="images/ApskatiLV_Logo.png"></a></div>
         <nav class="nav">
             <ul>
                 <li><a href="./index.php#home">Sākums</a></li>
@@ -185,6 +185,16 @@ session_start();
 
   <section id="pieteikties">
     <h2>Piesakies kādam no mūsu ceļojumiem</h2>
+
+    <?php
+                if(isset($_SESSION['lietotajvards'])){
+                    echo "
+                  <button class='btn'><a href='pieteikumi.php'>Pieteikumi</a></button>
+                  ";
+                  }
+                ?>
+
+
       <div class='bold-line'></div>
 <div class='container'>
   <img id="pic-form" src="images/form.jpeg" alt="liepaja">
@@ -199,12 +209,23 @@ session_start();
         <label >Dzimšanas dati:</label><br>
         <input type="date" id="birth" name="dzimDati" class="input-line full-width" required><br>
         <label >Ceļojums:</label><br>
-        <select name = "dropdown" class="input-line full-width" required>
-            <option value = "Riga" selected>Rīga</option>
+        <select  name = "dropdown" class="input-line full-width" required>
+
+        <?php
+                    require "./connect_db.php";
+                    $atlasit_cel_SQL = "SELECT * FROM galamerkis"; 
+                    $atlasa_cel = mysqli_query($savienojums, $atlasit_cel_SQL);
+
+                    while($ieraksts = mysqli_fetch_assoc($atlasa_cel)){
+                        echo "
+                        <option  class='dropTest' value = '{$ieraksts['Nosaukums']}' selected>$ieraksts[Nosaukums]</option>
+                       "; }?>
+
+            <!--<option value = "Riga" selected>Rīga</option>
             <option value = "Liepaja">Liepāja</option>
             <option value = "Ventspils">Ventspils</option>
             <option value = "Jurmala">Jūrmala</option>
-            <option value = "Sigulda">Sigulda</option>
+            <option value = "Sigulda">Sigulda</option>-->
          </select> <br>
          <label >Līdzbraucēju skaits:</label><br>
          <input type="number" id="skaits" class='input-line full-width' name="skaits"><br>

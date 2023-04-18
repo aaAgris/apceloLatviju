@@ -1,5 +1,5 @@
 <?php
-    $page = "moderatori";
+    $page = "profils";
     require "header.php";
     if(!isset($_SESSION['lietotajvards'])){
         echo "Tev šeit nav pieejas!";
@@ -11,7 +11,7 @@
 <section class="admin">
     <div class="row">
         <div class="info">
-            <div class="head-info head-color">Moderatora info:</div>
+            <div class="head-info head-color">Profila info:</div>
             <?php
                 if(isset($_SESSION['lietotajvards'])){ 
                     require "./connect_db.php";
@@ -76,15 +76,14 @@
                                 <td>
                             </tr>
                             
-                            <tr><td>
-                                <button class='btn' type='submit' name='rediget' value='{$ieraksts['lietotajs_id']}'>
-                                    Saglabāt</button>
-                            </td></tr>
-
-                            <tr><td>
+                            <tr>
+                            <td>
                             <button class='btn' id='signUp'><a href='./index.php#sakums'>Doties uz sākuma lapu</button>
+                            </td>
+                            <td>
+                            <button class='btn' type='submit' name='rediget' value='{$ieraksts['lietotajs_id']}'>
+                            Saglabāt</button>
                             </td></tr>
-                            
                             </table>
                             </form>
                         ";
@@ -101,5 +100,7 @@
 </section>
 
 <?php
-   // include "footer.php";
+    include "footer.php";
 ?>
+</body>
+</html>

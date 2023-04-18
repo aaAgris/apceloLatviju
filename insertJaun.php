@@ -10,20 +10,31 @@ exit();
 }
  
 if(isset($_POST['pievienotJaun'])){
+
+    // Iegust faila info
+    $filename = $_FILES['service_photo']['name'];
+    $tmp_file = $_FILES['service_photo']['tmp_name'];
+
+    // Uzstada, kur fails tiks glabats
+    $upload_dir = './images/';
+
+    // Ievada failu ./images folderi
+    $destination = $upload_dir . $filename;
+    move_uploaded_file($tmp_file, $destination);
+
     $Nosaukums = $_POST['Nosaukums'];
-    $Attels = $_POST['Attels'];
     $Apraksts = $_POST['Apraksts'];
     $Datums = $_POST['Datums'];
 
    
-    if(!empty($Nosaukums)&& !empty($Apraksts) && !empty($Attels) && !empty($Datums)){
+    if(!empty($Nosaukums)&& !empty($Apraksts) && !empty($destination) && !empty($Datums)){
         $atlasit_pak_SQL = "SELECT * FROM lietotajs WHERE  lietotajvards = '$_SESSION[lietotajvards]'"; 
         $atlasa_pak = mysqli_query($savienojums, $atlasit_pak_SQL);
 
-    }  
+     
         while($ieraksts = mysqli_fetch_assoc($atlasa_pak)){
           $ievietotSQL = "INSERT INTO jaunumi(Nosaukums, Attels, Apraksts,Datums, IDlietotajs) 
-VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Datums','{$ieraksts['lietotajs_id']}')";
+VALUE ('$Nosaukums','$destination', '$Apraksts', '$Datums','{$ieraksts['lietotajs_id']}')";
         }
         
  
@@ -38,4 +49,4 @@ VALUE ('$Nosaukums','$Attels', '$Apraksts', '$Datums','{$ieraksts['lietotajs_id'
         echo  "Nav aizpildīti visi lauki!";
         header("Refresh:1;url=pievienotJaun.php");
     }
-    
+}

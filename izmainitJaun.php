@@ -1,7 +1,6 @@
 <?php
     $page = "jaunumi";
     require "header.php";
-    session_start();
     if(!isset($_SESSION['lietotajvards'])){
         echo "Tev šeit nav pieejas!";
         header("Location: login.php");
@@ -16,17 +15,34 @@
             <?php
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     require "./connect_db.php";
-
+                    
                     
                     if(isset($_POST['rediget'])){
+
+                        // Iegust faila info
+                        $filename = $_FILES['service_photo']['name'];
+                        $tmp_file = $_FILES['service_photo']['tmp_name'];
+
+                       // Uzstada, kur fails tiks glabats
+                        $upload_dir = './images/';
+
+                       // Ievada failu ./images folderi
+                       $destination = $upload_dir . $filename;
+                       move_uploaded_file($tmp_file, $destination);
+
                         $atlasitais_Attels = $_POST['Attels'];
                         $atlasitais_Apraksts = $_POST['Apraksts'];
                         $atlasitais_Nosaukums = $_POST['Nosaukums'];
                         $atlasitais_Datums = $_POST['Datums'];
-                        
-                        
+
+
+                        if(!empty($filename)){
                         $atjaunot_attelu_SQL = "UPDATE jaunumi SET Attels = 
+                        '$destination' WHERE JaunumiID = ".$_POST['rediget'];
+                         }else{
+                            $atjaunot_attelu_SQL = "UPDATE jaunumi SET Attels = 
                         '$atlasitais_Attels' WHERE JaunumiID = ".$_POST['rediget'];
+                         }
 
                         $atjaunot_aprakstu_SQL = "UPDATE jaunumi SET Apraksts = 
                         '$atlasitais_Apraksts' WHERE JaunumiID = ".$_POST['rediget'];
@@ -84,7 +100,7 @@
 
                     while($ieraksts = mysqli_fetch_assoc($atlasa_jaunumus)){
                         echo "
-                        <form action='izmainitJaun.php' method='POST'>
+                        <form action='izmainitJaun.php' method='POST' enctype='multipart/form-data'>
                             <table>
                             <tr>
                                 <td>
@@ -100,6 +116,7 @@
                                 </td>
                                 <td class='value'><textarea rows = '5' cols = '60' 
                                 name = 'Attels'>{$ieraksts['Attels']}</textarea>
+                                <input type='file' id='service-photo' name='service_photo'>
                                 <td>
                             </tr>
 
@@ -142,5 +159,5 @@
 </section>
 
 <?php
-   // include "footer.php";
+   include "footer.php";
 ?>

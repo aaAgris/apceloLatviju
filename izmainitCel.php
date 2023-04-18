@@ -1,7 +1,6 @@
 <?php
     $page = "celojumi";
     require "header.php";
-    session_start();
     if(!isset($_SESSION['lietotajvards'])){
         echo "Tev šeit nav pieejas!";
         header("Location: login.php");
@@ -19,15 +18,33 @@
 
                     
                     if(isset($_POST['rediget'])){
+
+                         // Iegust faila info
+                         $filename = $_FILES['service_photo']['name'];
+                         $tmp_file = $_FILES['service_photo']['tmp_name'];
+
+                        // Uzstada, kur fails tiks glabats
+                         $upload_dir = './images/';
+
+                        // Ievada failu ./images folderi
+                        $destination = $upload_dir . $filename;
+                        move_uploaded_file($tmp_file, $destination);
+
+
                         $atlasitais_Attels = $_POST['Attels'];
                         $atlasitais_Apraksts = $_POST['Apraksts'];
                         $atlasitais_Nosaukums = $_POST['Nosaukums'];
                         $atlasita_Cena = $_POST['Cena'];
                         $atlasita_Lokacija = $_POST['Lokacija'];
                         
-                        
+
+                        if(!empty($filename)){
+                        $atjaunot_attelu_SQL = "UPDATE galamerkis SET Attels = 
+                        '$destination' WHERE GalamID = ".$_POST['rediget'];
+                        }else{
                         $atjaunot_attelu_SQL = "UPDATE galamerkis SET Attels = 
                         '$atlasitais_Attels' WHERE GalamID = ".$_POST['rediget'];
+                        }
 
                         $atjaunot_aprakstu_SQL = "UPDATE galamerkis SET Apraksts = 
                         '$atlasitais_Apraksts' WHERE GalamID = ".$_POST['rediget'];
@@ -93,13 +110,12 @@
 
                     $pakID = $_POST['izmainit'];
                     $atlasit_pakalpojumu_SQL = "SELECT * FROM galamerkis WHERE GalamID = $pakID"; 
-                    echo $atlasit_pakalpojumu_SQL;  
                     $atlasa_pakalpojumu = mysqli_query($savienojums, $atlasit_pakalpojumu_SQL);
 
 
                     while($ieraksts = mysqli_fetch_assoc($atlasa_pakalpojumu)){
                         echo "
-                        <form action='izmainitCel.php' method='POST'>
+                        <form action='izmainitCel.php' method='POST' enctype='multipart/form-data'>
                             <table>
                             <tr>
                                 <td>
@@ -115,6 +131,7 @@
                                 </td>
                                 <td class='value'><textarea rows = '5' cols = '60' 
                                 name = 'Attels'>{$ieraksts['Attels']}</textarea>
+                                <input type='file' id='service-photo' name='service_photo'>
                                 <td>
                             </tr>
 
@@ -166,5 +183,5 @@
 </section>
 
 <?php
-   // include "footer.php";
+   include "footer.php";
 ?>

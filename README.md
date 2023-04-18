@@ -6,7 +6,7 @@ piedāvājumiem. Mājaslapa veidota izmantojot HTML, CSS, Javascript un PHP.
 
 Darba gaita:
 - [x] Izveidots autorizācijas logs
-- [ ] Ieviesta funkcionalitāte ceļojuma pieteikumam
+- [x] Ieviesta funkcionalitāte ceļojuma pieteikumam
 - [x] Izveidota datubāze
 - [x] Pievienot pakalpojumu
 - [x] Pievienot ceļojumu

@@ -11,8 +11,7 @@
 
 <?php
     $page = "moderatori ";
-    //require "header.php";
-    session_start();
+    require "header.php";
     if(!isset($_SESSION['lietotajvards'])){
         echo "Tev šeit nav pieejas!";
         header("Location: login.php");
@@ -52,7 +51,7 @@
                         </tr>
                         <tr>
                             <td>
-                        <button class="btn" id="signUp"><a href="./index.php">Doties uz sākuma lapu</button>
+                        <button class="btn" id="signUp"><a href="./index.php#home">Doties uz sākuma lapu</button>
                             </td>
                         </tr>
 </form>
@@ -62,5 +61,5 @@
 </section>
 
 <?php
-    //include "footer.php";
+    include "footer.php";
 ?>

@@ -6,7 +6,7 @@
         $izdzest_ierakstu_SQL = "DELETE FROM pakalpojumi 
         WHERE Pakalpojumi_ID = ".$_POST['delete'];
         if(mysqli_query($savienojums, $izdzest_ierakstu_SQL)){
-            echo "<div class='pieteiksanaskluda zals'>Izmaiņas veiksmīgi veiktas!</div>";
+            echo "<div class='pieteiksanaskluda zals'>Pakalpojums veiksmīgi izdzēsts!</div>";
             header("Refresh:1; url=index.php"); 
         }else{
             echo "<div class='pieteiksanaskluda sarkans'>Kļūda sistēmā!</div>";

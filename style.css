@@ -370,11 +370,15 @@ button:focus {
   transition: all .2s ease;
 }
 
+.dropTest{
+  background-color: #df805b;
+}
+
 .input-line {
   background: none;
   margin-bottom: 10px;
   line-height: 2.4em;
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-family: roboto;
   font-weight: 300;
   letter-spacing: 0px;
@@ -388,6 +392,7 @@ button:focus {
 
 .full-width {
   width: 100%;
+  
 }
 
 .input-fields {
@@ -450,7 +455,7 @@ button:focus {
 
 .window {
   z-index: 100;
-  color: #FDEEDC;
+  color: white;
   font-family: roboto;
   position: relative;
   display: -webkit-box;
@@ -484,7 +489,7 @@ button:focus {
 }
 
 .bold-line {
-  background: #e7e7e7;
+  background: white;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -522,6 +527,7 @@ button:focus {
     padding:30px 0px;
     font-family: 'Play', sans-serif;
     text-align:center;
+    margin-top: 100px;
     }
     
     .footer .row{
@@ -683,6 +689,7 @@ button:focus {
 
   .btn{
     margin-top: 1rem;
+    margin-bottom: 1rem;
     display: inline-block;
     padding:.8rem 2rem;
     font-size: 1rem;
