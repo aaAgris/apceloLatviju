@@ -26,7 +26,7 @@
             <table class="adminTable">
             <form action="insertCel.php" method='POST' enctype="multipart/form-data">
                 <tr>
-                            <th>Pakalpojums:</th>
+                            <th>Nosaukums:</th>
                             <td>
                             <textarea rows = "1" cols = "100" name="Nosaukums" required>Ievadi ceļojuma nosaukumu*</textarea>
                                 </td>
